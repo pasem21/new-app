@@ -3,12 +3,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: myapp-ingress
+  name: static-ingress
+  namespace: default
 spec:
   rules:
-    - host: shubham.com
-      http:
-        paths:
-          - backend:
-              serviceName: static-service
-              servicePort: 80
+  - host: static.owndomain.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: static-service
+            port:
+              number: 80
