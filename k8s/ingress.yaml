@@ -1,24 +1,14 @@
 # https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource
 
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: static-ingress
-  namespace: default
-  annotations:
-    alb.ingress.kubernetes.io/load-balancer-name: static-app-lb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: instance
-    alb.ingress.kubernetes.io/group.name: demo
+  name: myapp-ingress
 spec:
   rules:
-  - host: static.owndomain.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: static-service
-            port:
-              number: 80
+    - host: shubham.com
+      http:
+        paths:
+          - backend:
+              serviceName: static-service
+              servicePort: 8080

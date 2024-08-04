@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: static-app
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: static-service
     protocol: TCP
