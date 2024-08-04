@@ -1,14 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: static-service
+  name: my-app
   namespace: default
 spec:
   selector:
-    app:  static-website
+    app: my-app
   type: ClusterIP
   ports:
-  - name: static-website
-    protocol: TCP
+  - name: my-app
     port: 80
     targetPort: 80

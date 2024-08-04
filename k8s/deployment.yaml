@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  static-website
+  name:  my-app
   namespace: default
   labels:
-    app: static-app
+    app: my-app
 spec:
   selector:
     matchLabels:
-      app: static-app
+      app: my-app
   replicas: 1
   strategy:
     rollingUpdate:
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: static-app
+        app: my-app
     spec:
       # initContainers:
         # Init containers are exactly like regular containers, except:
@@ -53,5 +53,5 @@ spec:
           periodSeconds: 10
         ports:
         - containerPort:  80
-          name: static-app
+          name: my-app
       restartPolicy: Always
