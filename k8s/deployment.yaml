@@ -25,7 +25,7 @@ spec:
           # - Init containers always run to completion.
           # - Each init container must complete successfully before the next one starts.
       containers:
-      - name: static-app
+      - name: my-app
         image: 730335381673.dkr.ecr.us-east-1.amazonaws.com/demo:latest
         resources:
           requests:
@@ -46,12 +46,4 @@ spec:
           httpGet:
             path: /index.html
             port: 80
-          initialDelaySeconds: 5
-          timeoutSeconds: 2
-          successThreshold: 1
-          failureThreshold: 3
-          periodSeconds: 10
-        ports:
-        - containerPort:  80
-          name: my-app
       restartPolicy: Always
