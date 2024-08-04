@@ -8,6 +8,8 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/load-balancer-name: static-lb
     alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/group.name: demo
+    alb.ingress.kubernetes.io/target-type: instance
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP 
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port    
     alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
